@@ -6,7 +6,6 @@ import requests
 import subprocess
 import re
 sys.path.append('../utils')
-
 from utils import constants as cts
 
 def get_latest_models():
