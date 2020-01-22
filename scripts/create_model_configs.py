@@ -1,12 +1,13 @@
 #!/usr/bin/env Python
 
 import sys
-sys.path.append('/home/users/rpetrie/cmip6/cmip6-fileset-estimator/')
-
 import os
 import requests
 import subprocess
-from utils import *
+import re
+sys.path.append('../utils')
+
+from utils import constants as cts
 
 def get_latest_models():
     """
@@ -15,7 +16,7 @@ def get_latest_models():
 
     :return: [dict] of model information
     """
-    resp = requests.get(cmip6_source_id_CV)
+    resp = requests.get(cts.cmip6_source_id_CV)
     json_resp = resp.json()
     models = json_resp['source_id']
     return models
