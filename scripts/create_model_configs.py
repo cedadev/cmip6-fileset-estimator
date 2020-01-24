@@ -5,7 +5,8 @@ import os
 import requests
 import subprocess
 import re
-sys.path.append('../utils')
+import datetime as dt
+#sys.path.append('../utils')
 from utils import constants as cts
 
 def get_latest_models():
@@ -171,21 +172,11 @@ def get_number_of_soil_levels(description):
 
 def get_nlats(model, n_ocean_lats, n_atmos_lats):
 
-
-    models_table = {}
-    models_table['AWI-CM-1-1-LR'] = "600"
-    models_table['AWI-CM-1-1-MR'] = "1000"
-    models_table['AWI-CM-1-1-HR'] = "1200"
-    models_table['E3SM-1-0'] = "800"
-    models_table['AWI-ESM-1-1-LR'] = "600"
-    models_table['AWI-ESM-1-1-HR'] = "1200"
-    models_table['AWI-ESM-1-1-MR'] = "800"
-
     if n_ocean_lats and n_atmos_lats:
         nlats = str(int(n_ocean_lats) + int(n_atmos_lats))
 
-    elif model in models_table.keys():
-        nlats = models_table[model]
+    elif model in cts.model_lats_expceptions.keys():
+        nlats = cts.model_lats_expceptions[model]
 
     else:
         nlats = 200
@@ -224,8 +215,11 @@ def main():
         nls = get_number_of_soil_levels(model_details[model]["model_component"]["atmos"]["description"])
         nlats = get_nlats(model, n_ocean_lats, n_atmos_lats)
 
+        with open("ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]), "a_") as w:
+            w.writelines("{} : {} {} {} {} {} {} {}\n".format(model, nho, nlo, nha, nla, nlas, nls, nlats))
 
-        print("{} : {} {} {} {} {} {} {}".format(model, nho, nlo, nha, nla, nlas, nls, nlats))
+        os.unlink("ancils/model_configs.txt")
+        os.symlink("ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]), "ancils/model_configs.txt")
 
         """
         Write to the ancils dir the data dated
@@ -233,8 +227,6 @@ def main():
         os.unlink model_configs.txt
         os.link model_configs.txt to the latest
         """
-
-
 
 if __name__ == "__main__":
 
