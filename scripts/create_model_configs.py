@@ -2,6 +2,7 @@
 
 import sys
 import os
+import shutil
 import requests
 import subprocess
 import re
@@ -188,11 +189,12 @@ def get_resolution_component(details):
     try:
         res = details['model_component'][realm]['description'].split('; ')[part].split(' ')[res_loc]
         try:
-            x = int(res)
+            _ = int(res)
         except:
             res = 0
     except:
         res = 0
+
     return res
 
 
@@ -215,18 +217,29 @@ def main():
         nls = get_number_of_soil_levels(model_details[model]["model_component"]["atmos"]["description"])
         nlats = get_nlats(model, n_ocean_lats, n_atmos_lats)
 
-        with open("ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]), "a_") as w:
+        filename = os.path.join(cts.BASEDIR, "ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]) )
+        with open(filename, "a+") as w:
             w.writelines("{} : {} {} {} {} {} {} {}\n".format(model, nho, nlo, nha, nla, nlas, nls, nlats))
 
-        os.unlink("ancils/model_configs.txt")
-        os.symlink("ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]), "ancils/model_configs.txt")
+
+        src = os.path.join(cts.BASEDIR, "ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]))
+        dst = os.path.join(cts.BASEDIR, "ancils/model_configs_latest.txt")
+
+        os.remove(dst)
+        shutil.copyfile(src, dst)
+
 
         """
-        Write to the ancils dir the data dated
-        create new symlink to latest
-        os.unlink model_configs.txt
-        os.link model_configs.txt to the latest
+        write a test to make sure new file exists in a function and print to screen that name function that
+        take verbose as an option so 
+        
+        def fnName(file, verbose=False)
+            
+            if verbose: 
+                print("I made a file {}".format(fname))
+        
         """
+
 
 if __name__ == "__main__":
 
