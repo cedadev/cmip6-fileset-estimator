@@ -59,7 +59,13 @@ def parse_json(model, models):
 
 
 def get_no_strat_levels(no_vert_levels_atmos):
+    """
+        Returns the number of stratospheric levels based on the number of vertical
+        levels in the model which is returned from the parse_jason function
 
+        :param no_vert_levels_atmos: [str] returned from the parse_jason function
+        :return: [str] no_strat_levels
+        """
     try:
         if float(no_vert_levels_atmos) > 60:
             no_strat_levels = '20'
@@ -75,11 +81,14 @@ def get_no_strat_levels(no_vert_levels_atmos):
 def get_horizontal_ocean_resolution(description):
 
     """
+    This function uses regular expressions to search through the model description information to find out the lats and
+    lons. These are used to calculate the number of horizontal grid cells in the ocean and the number of latitude values
+    If this information is not available then alternative searches are performed. Otherwise a default value is given
 
-    :param description:
+    :param description: The [model_component"], ["ocean"] and ["description] from a [dict] of model information returned
+    by get_latest_models
     :return: Tuple of nho, n_ocean_lats
     """
-
     nho = None
     nlats = None
     if description == "none":
@@ -104,6 +113,15 @@ def get_horizontal_ocean_resolution(description):
     return nho, nlats
 
 def get_number_of_ocean_levels(description):
+    """
+    This function uses regular expressions to search through the model description information to find out the number
+    of ocean levels using the keywords 'levels' and 'vertical levels'. If this information is not available then
+    alternative searches are performed. Otherwise a default value of '60' is given.
+
+    :param description: The [model_component"], ["ocean"] and ["description] from a [dict] of model information returned
+    by get_latest_models
+    :return: nlo
+    """
 
     if description == "none":
         return "0"
