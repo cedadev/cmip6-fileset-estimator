@@ -81,12 +81,13 @@ def get_no_strat_levels(no_vert_levels_atmos):
 def get_horizontal_ocean_resolution(description):
 
     """
-    This function uses regular expressions to search through the model description information to find out the lats and
-    lons. These are used to calculate the number of horizontal grid cells in the ocean and the number of latitude values
-    If this information is not available then alternative searches are performed. Otherwise a default value is given
+    This function uses regular expressions to search through the model description information
+    to find out the lats and lons. These are used to calculate the number of horizontal grid
+    cells in the ocean and the number of latitude values. If this information is not available
+    then alternative searches are performed. Otherwise a default value is given
 
-    :param description: The [model_component"], ["ocean"] and ["description] from a [dict] of model information returned
-    by get_latest_models
+    :param description: The [model_component"], ["ocean"] and ["description] from a \
+                        [dict] of model information returned by get_latest_models
     :return: Tuple of nho, n_ocean_lats
     """
     nho = None
@@ -114,12 +115,12 @@ def get_horizontal_ocean_resolution(description):
 
 def get_number_of_ocean_levels(description):
     """
-    This function uses regular expressions to search through the model description information to find out the number
-    of ocean levels using the keywords 'levels' and 'vertical levels'. If no information is found a default value of
-     '60' is given.
+    This function uses regular expressions to search through the model description information
+    to find out the number of ocean levels using the keywords 'levels' and 'vertical levels'.
+    If no information is found a default value of '60' is given.
 
-    :param description: The [model_component"], ["ocean"] and ["description] from a [dict] of model information returned
-    by get_latest_models
+    :param description: The [model_component"], ["ocean"] and ["description] from a [dict] of model \
+                        information returned by get_latest_models
     :return: nlo
     """
 
@@ -133,12 +134,13 @@ def get_number_of_ocean_levels(description):
 
 def get_number_of_atmos_levels(description):
     """
-    This function uses regular expressions to search through the model description information to find out the number
-    of atmospheric levels using the keywords 'levels' and 'vertical levels'. The number of stratospheric levels is
-    decided based on the atmospheric levels. If no information is found a default value is given.
+    This function uses regular expressions to search through the model description
+    information to find out the number of atmospheric levels using the keywords 'levels'
+    and 'vertical levels'. The number of stratospheric levels is decided based on the
+    atmospheric levels. If no information is found a default value is given.
 
-    :param description: The [model_component"], ["atmos"] and ["description] from a [dict] of model information returned
-    by get_latest_models
+    :param description: The [model_component"], ["atmos"] and ["description] from \
+                        a [dict] of model information returned by get_latest_models
     :return: Tuple of nlevs, nlas
     """
     if description == "none":
@@ -154,11 +156,13 @@ def get_number_of_atmos_levels(description):
 
 def get_horizontal_atmos_resolution(description):
     """
+    Returns the number of horizontal grid cells in the atmosphere and latitude using
+    regular expression searches into the input model description. If a combination of
+    the two output values isn't found then a default value of '64800' is returned for nh.
 
-
-    :param description: The [model_component"], ["atmos"] and ["description] from a [dict] of model information returned
-    by get_latest_models
-    :return: Tuple of nh, lats
+    :param description: The [model_component"], ["atmos"] and ["description] from \
+                        a [dict] of model information returned by get_latest_models
+    :return: Tuple of nh, n_atmos_lats
       """
     if description == "none":
         nh = "0"
@@ -197,6 +201,14 @@ def get_horizontal_atmos_resolution(description):
     return nh, lats
 
 def get_number_of_soil_levels(description):
+    """
+    This function identifies the number of soil levels. If there is no soil level information then this will return '0'.
+    Else a default value of '5' is given.
+
+    :param description: The [model_component"], ["atmos"] and ["description] from a [dict] of model information returned
+    by get_latest_models
+    :return: [int] 0 or 5
+    """
     if description == "none":
         return "0"
     else:
@@ -204,7 +216,16 @@ def get_number_of_soil_levels(description):
 
 
 def get_nlats(model, n_ocean_lats, n_atmos_lats):
+    """
+    Returns the total number of latitude values based on the number of atmospheric latitude
+    values and the number of ocean latitude values. If this is not provided......
+    Else a default value of '200' is returned.
 
+    :param model:
+    :param n_ocean_lats: Number of ocean latitude values returned by get_horizontal_ocean_resolution
+    :param n_atmos_lats: Number of atmospheric latitude values returned by get_horizontal_atmos_resolution
+    :return: nlats
+    """
     if n_ocean_lats and n_atmos_lats:
         nlats = str(int(n_ocean_lats) + int(n_atmos_lats))
 
