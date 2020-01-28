@@ -115,8 +115,8 @@ def get_horizontal_ocean_resolution(description):
 def get_number_of_ocean_levels(description):
     """
     This function uses regular expressions to search through the model description information to find out the number
-    of ocean levels using the keywords 'levels' and 'vertical levels'. If this information is not available then
-    alternative searches are performed. Otherwise a default value of '60' is given.
+    of ocean levels using the keywords 'levels' and 'vertical levels'. If no information is found a default value of
+     '60' is given.
 
     :param description: The [model_component"], ["ocean"] and ["description] from a [dict] of model information returned
     by get_latest_models
@@ -132,7 +132,15 @@ def get_number_of_ocean_levels(description):
         return "60"
 
 def get_number_of_atmos_levels(description):
+    """
+    This function uses regular expressions to search through the model description information to find out the number
+    of atmospheric levels using the keywords 'levels' and 'vertical levels'. The number of stratospheric levels is
+    decided based on the atmospheric levels. If no information is found a default value is given.
 
+    :param description: The [model_component"], ["atmos"] and ["description] from a [dict] of model information returned
+    by get_latest_models
+    :return: Tuple of nlevs, nlas
+    """
     if description == "none":
         return "0", "0"
     elif re.search("levels", description):
@@ -145,7 +153,13 @@ def get_number_of_atmos_levels(description):
         return "40", "20"
 
 def get_horizontal_atmos_resolution(description):
+    """
 
+
+    :param description: The [model_component"], ["atmos"] and ["description] from a [dict] of model information returned
+    by get_latest_models
+    :return: Tuple of nh, lats
+      """
     if description == "none":
         nh = "0"
         lats = "0"
