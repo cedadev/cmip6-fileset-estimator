@@ -18,4 +18,4 @@ model_lats_expceptions['AWI-ESM-1-1-MR'] = "800"
 
 #
 BASEDIR = os.getcwd()
-print(BASEDIR)
+#print(BASEDIR)

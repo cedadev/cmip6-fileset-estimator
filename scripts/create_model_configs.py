@@ -7,7 +7,7 @@ import requests
 import subprocess
 import re
 import datetime as dt
-#sys.path.append('../utils')
+
 from utils import constants as cts
 
 def get_latest_models():
@@ -270,12 +270,12 @@ def main():
         nls = get_number_of_soil_levels(model_details[model]["model_component"]["atmos"]["description"])
         nlats = get_nlats(model, n_ocean_lats, n_atmos_lats)
 
-        filename = os.path.join(cts.BASEDIR, "ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]) )
+        filename = os.path.join(cts.BASEDIR, "ancils/model_configs_{}.txt".format(dt.datetime.today().isoformat().split('T')[0]) )
         with open(filename, "a+") as w:
             w.writelines("{} : {} {} {} {} {} {} {}\n".format(model, nho, nlo, nha, nla, nlas, nls, nlats))
 
 
-        src = os.path.join(cts.BASEDIR, "ancils/model_configs-{}.txt".format(dt.datetime.today().isoformat().split('T')[0]))
+        src = os.path.join(cts.BASEDIR, "ancils/model_configs_{}.txt".format(dt.datetime.today().isoformat().split('T')[0]))
         dst = os.path.join(cts.BASEDIR, "ancils/model_configs_latest.txt")
 
         os.remove(dst)
@@ -290,7 +290,12 @@ def main():
             
             if verbose: 
                 print("I made a file {}".format(fname))
-        
+                
+       
+        NEXT
+        Write in a wrapper to run this script and check that days text files exists as know the fileformat
+        Then keep previous 3 days of txt files and the 1st of every month as backup - delete the rest
+        Get wrapper into cron
         """
 
 
