@@ -270,7 +270,7 @@ def main():
         nls = get_number_of_soil_levels(model_details[model]["model_component"]["atmos"]["description"])
         nlats = get_nlats(model, n_ocean_lats, n_atmos_lats)
 
-        filename = os.path.join(cts.BASEDIR, "ancils/model_configs_{}.txt".format(dt.datetime.today().isoformat().split('T')[0]) )
+        filename = os.path.join(cts.BASEDIR, "ancils/model_configs_{}.txt".format(dt.datetime.today().isoformat().split('T')[0]))
         with open(filename, "a+") as w:
             w.writelines("{} : {} {} {} {} {} {} {}\n".format(model, nho, nlo, nha, nla, nlas, nls, nlats))
 
@@ -280,23 +280,6 @@ def main():
 
         os.remove(dst)
         shutil.copyfile(src, dst)
-
-
-        """
-        write a test to make sure new file exists in a function and print to screen that name function that
-        take verbose as an option so 
-        
-        def fnName(file, verbose=False)
-            
-            if verbose: 
-                print("I made a file {}".format(fname))
-                
-       
-        NEXT
-        Write in a wrapper to run this script and check that days text files exists as know the fileformat
-        Then keep previous 3 days of txt files and the 1st of every month as backup - delete the rest
-        Get wrapper into cron
-        """
 
 
 if __name__ == "__main__":

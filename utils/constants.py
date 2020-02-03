@@ -15,7 +15,7 @@ model_lats_expceptions['AWI-ESM-1-1-HR'] = "1200"
 model_lats_expceptions['AWI-ESM-1-1-MR'] = "800"
 
 
-
 #
-BASEDIR = os.getcwd()
+#BASEDIR = os.getcwd()
+BASEDIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 #print(BASEDIR)
