@@ -4,6 +4,7 @@ import os
 import datetime as dt
 import create_model_configs
 import argparse
+import subprocess
 
 ancils_dir = os.path.join(create_model_configs.cts.BASEDIR,"ancils")
 
@@ -24,12 +25,14 @@ def remove_old_logs():
 
             if not file_date.endswith('01'):
                 if int(file_date) < int(three_days_ago):
-                    print("I will delete {}".format(os.path.join(ancils_dir, f)))
-                    #os.remove(os.path.join(ancils_dir, f))
+                    #print("I will delete {}".format(os.path.join(ancils_dir, f)))
+                    os.remove(os.path.join(ancils_dir, f))
 
 def check_file_creation(today_filename):
     if os.path.exists(today_filename):
         print("Today's file {} has been created".format(today_filename))
+    else:
+        print("Today's file was not created")
 
 def main():
 
