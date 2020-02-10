@@ -1,5 +1,7 @@
 # user compiled
 setup.sh
+setup-env.sh
+cronlogs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
