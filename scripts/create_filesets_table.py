@@ -5,9 +5,12 @@ import requests
 import subprocess
 import argparse
 
-# basedir = "/home/users/rpetrie/cmip6-filesets.bk/cmip6-data-vols"
-basedir = "/home/users/rpetrie/cmip6-filesets/cmip6-data-vols/"
+from utils import constants as cts
 
+#changed fixed basedir to Ruths home dir to a relative path defined in constants
+basedir = cts.BASEDIR
+
+#what does this do?
 requests.packages.urllib3.disable_warnings()
 MAX_FILESET_SIZE = 50.
 ENSEMBLE_SCALE_FACTOR = 1.
@@ -24,7 +27,9 @@ class FilesetAppender(object):
 
 
     def read_filesets(self, filename):
+        '''
 
+        '''
         if self.verbose:
             print("FILE :: {}".format(filename))
 
@@ -72,7 +77,7 @@ def get_list_of_experiments():
     :return: [DICT] form 'experiment_id': {'tier': u'2', 'mips': [u'AerChemMIP']}
     """
 
-    cmip6_experiments_cvs = "https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_experiment_id.json"
+    cmip6_experiments_cvs = cts.cmip6_source_id_CV
     resp = requests.get(cmip6_experiments_cvs)
     json_resp = resp.json()
     exp_details = json_resp['experiment_id']
@@ -88,17 +93,13 @@ def get_list_of_experiments():
 
 def get_list_of_models_and_mips():
     """
-    Get a list of all models from the CMIP6 CV
-
-    :return: sorted list of registered models
-    """
-    """
-    Calls to the the https://github.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_source_id.json and collects the most
-    recent version of the list of verified CMIP6 models.
+    Get a list of all models from the CMIP6 CV (Calls to the the
+    https://github.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_source_id.json and
+    collects the most recent version of the list of verified CMIP6 models.)
 
     :return: [dict] of model information
     """
-    resp = requests.get('https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_source_id.json')
+    resp = requests.get(cts.cmip6_source_id_CV)
     json_resp = resp.json()
     models_details = json_resp['source_id']
 
@@ -114,7 +115,7 @@ def get_list_of_models_and_mips():
 
 def get_model_configs(cmip6_model):
 
-    model_configs_file = os.path.join(basedir, "ancils/model_configs.txt")
+    model_configs_file = os.path.join(basedir, "ancils/model_configs.txt") # this doesn't exist
 
     with open(model_configs_file) as r:
         cfgs = r.readlines()
