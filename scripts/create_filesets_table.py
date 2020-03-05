@@ -199,6 +199,11 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
     appender = FilesetAppender(ofile)
 
     for experiment, exp_details in experiment_info.iteritems():
+
+        # ------------------------------------------
+      # no_exceptions = check_for_exceptions(cmip6_model, experiment)
+      # check_for_exceptions should return a boolean True/False
+
       if cmip6_model == "AWI-CM-1-1-MR" and experiment == "piControl":
           pass
       elif experiment == "histSST-noLu":
@@ -212,6 +217,8 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
 
 
       else:
+
+        #------------------------------------------
         # set tier of experiment
         tier = experiment_info[experiment]['tier']
 
@@ -219,6 +226,7 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
 
             table_var_vols, simVol = call_data_request(cmip6_model, model_cfgs, cmip6_mip, experiment, mips, tier=tier)
 
+            # set this in separate functions which returns SCALE_FACTOR
             if "UKESM" in cmip6_model or "HadGEM3" in cmip6_model:
                 SCALE_FACTOR = 2.0 #cts.ENSEMBLE_SCALE_FACTOR * cts.VERSION_SCALE_FACTOR
             else:
@@ -230,6 +238,8 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
                 continue
 
             if total_simulation_vol < cts.MAX_FILESET_SIZE:
+
+                # this is a function!!!!
                 granularity = appender.get_granularity(ofile, experiment)
                 if granularity and not granularity == 5:
                     raise Exception("GRANULARITY MATCH FAILED experiemnt {}".format(experiment))
