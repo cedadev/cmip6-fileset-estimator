@@ -1,4 +1,5 @@
 # user compiled
+cmip6-drq-venv-py3/
 setup.sh
 setup-env.sh
 cronlogs/
