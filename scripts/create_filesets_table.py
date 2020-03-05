@@ -10,7 +10,7 @@ from utils import constants as cts
 #changed fixed basedir to Ruths home dir to a relative path defined in constants
 basedir = cts.BASEDIR
 
-#what does this do?
+#Remove with python 3
 requests.packages.urllib3.disable_warnings()
 MAX_FILESET_SIZE = 50.
 ENSEMBLE_SCALE_FACTOR = 1.
