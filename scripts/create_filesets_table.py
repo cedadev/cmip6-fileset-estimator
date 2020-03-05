@@ -1,75 +1,11 @@
-import sys
+
 import os
 import json
 import requests
 import subprocess
 import argparse
-
 from utils import constants as cts
-
-#changed fixed basedir to Ruths home dir to a relative path defined in constants
-basedir = cts.BASEDIR
-
-#Remove with python 3
-requests.packages.urllib3.disable_warnings()
-MAX_FILESET_SIZE = 50.
-ENSEMBLE_SCALE_FACTOR = 1.
-VERSION_SCALE_FACTOR = 1.
-
-
-class FilesetAppender(object):
-
-    def __init__(self, filename, verbose=False):
-        self.verbose = verbose
-        self.filename = filename
-        self.filesets = self.read_filesets(filename)
-
-
-
-    def read_filesets(self, filename):
-        '''
-
-        '''
-        if self.verbose:
-            print("FILE :: {}".format(filename))
-
-        filesets = set()
-        with open(filename) as f:
-            for line in f:
-                bits = line.split()
-                if len(bits) != 2:
-                    continue
-                 # Additional space required for granularity checker ensures that the end of the fileset is reached.
-                filesets.add(bits[0]+ " ")
-        return filesets
-
-    def write_fileset(self, fileset, size):
-
-        if self.verbose:
-            print("FILESET :: {}".format(fileset))
-            print("FILESET :: {}".format(self.filesets))
-            print(fileset in self.filesets)
-
-        if "{} ".format(fileset) in self.filesets:
-            if self.verbose:
-                print("FILESET ALREADY EXISTS")
-            return
-
-        if self.verbose:
-            print("WRITING FILESET")
-
-        with open(self.filename, "a") as f:
-            f.write("{} {:.10f}\n".format(fileset, size))
-        self.filesets.add(fileset)
-
-
-    def get_granularity(self, filename, experiment):
-        filesets = self.read_filesets(filename)
-        for fileset in filesets:
-            if "{}/ ".format(experiment) in fileset:
-                return len(fileset.split('/'))-1
-
-        else: return None
+from fileset_appender import FilesetAppender
 
 def get_list_of_experiments():
     """
@@ -115,7 +51,7 @@ def get_list_of_models_and_mips():
 
 def get_model_configs(cmip6_model):
 
-    model_configs_file = os.path.join(basedir, "ancils/model_configs.txt") # this doesn't exist
+    model_configs_file = os.path.join(cts.BASEDIR, "ancils/model_configs.txt") # this doesn't exist
 
     with open(model_configs_file) as r:
         cfgs = r.readlines()
@@ -183,7 +119,7 @@ def parse_dreq_out(lines, mip, nmips):
     table_vols = {}
     mipVol = {}
     if "----" in lines:
-        logdir = os.path.join(basedir, "logs")
+        logdir = os.path.join(cts.BASEDIR, "logs")
         if not os.path.isdir(logdir): os.makedirs(logdir)
         with open(os.path.join(logdir, 'dreq_errors.txt', 'a+')) as w:
             w.writelines(["{} {} {}\n".format(cmip6_mip, cmip6_model, experiment)])
@@ -258,6 +194,8 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
     mips = get_mips_per_model(models_and_mips, cmip6_model)
 
     # Instansiate the filesetappender
+    if not os.path.exists(ofile):
+        open(ofile, 'a').close()
     appender = FilesetAppender(ofile)
 
     for experiment, exp_details in experiment_info.iteritems():
@@ -282,16 +220,16 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
             table_var_vols, simVol = call_data_request(cmip6_model, model_cfgs, cmip6_mip, experiment, mips, tier=tier)
 
             if "UKESM" in cmip6_model or "HadGEM3" in cmip6_model:
-                SCALE_FACTOR = 2.0 #ENSEMBLE_SCALE_FACTOR * VERSION_SCALE_FACTOR
+                SCALE_FACTOR = 2.0 #cts.ENSEMBLE_SCALE_FACTOR * cts.VERSION_SCALE_FACTOR
             else:
-                SCALE_FACTOR = 1.0 #VERSION_SCALE_FACTOR
+                SCALE_FACTOR = 1.0 #cts.VERSION_SCALE_FACTOR
 
             total_simulation_vol = simVol.values()[0] * SCALE_FACTOR
             # total_simulation_vol = simVol.values()[0]
             if total_simulation_vol == 0.:
                 continue
 
-            if total_simulation_vol < MAX_FILESET_SIZE:
+            if total_simulation_vol < cts.MAX_FILESET_SIZE:
                 granularity = appender.get_granularity(ofile, experiment)
                 if granularity and not granularity == 5:
                     raise Exception("GRANULARITY MATCH FAILED experiemnt {}".format(experiment))
@@ -299,8 +237,8 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
                 appender.write_fileset(fileset_depth_string, total_simulation_vol)
 
             else:
-                single_ensmb_vol = simVol.values()[0] * VERSION_SCALE_FACTOR
-                if single_ensmb_vol < MAX_FILESET_SIZE:
+                single_ensmb_vol = simVol.values()[0] * cts.VERSION_SCALE_FACTOR
+                if single_ensmb_vol < cts.MAX_FILESET_SIZE:
                     granularity = appender.get_granularity(ofile, "{}/*".format(experiment))
                     if granularity and not granularity == 6:
                         raise Exception("GRANULARITY MATCH FAILED ensemble: {}".format(experiment))
@@ -310,10 +248,10 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
                 else:
                     tableVols = calc_table_vol(table_var_vols)
                     for table, vol in tableVols.iteritems():
-                        table_vol = vol * VERSION_SCALE_FACTOR
+                        table_vol = vol * cts.VERSION_SCALE_FACTOR
 
 
-                        if table_vol < MAX_FILESET_SIZE:
+                        if table_vol < cts.MAX_FILESET_SIZE:
 
                             granularity = appender.get_granularity(ofile, "{}/*/{}".format(experiment, table))
                             if granularity and not granularity == 7:
@@ -327,7 +265,7 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
 
                             for item in var_vols:
                                 var = item.keys()[0]
-                                vol = item.values()[0] * VERSION_SCALE_FACTOR
+                                vol = item.values()[0] * cts.VERSION_SCALE_FACTOR
                                 if vol > 1.0:
                                     # print experiment, table, var, vol, granularity
                                     granularity = appender.get_granularity(ofile, "{}/*/{}/{}".format(experiment, table, var))
@@ -351,9 +289,9 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
 
                                 partial_table_sum = 0.
                                 for v in partial_table_fileset:
-                                    partial_table_sum += v.values()[0] * VERSION_SCALE_FACTOR
-                                if partial_table_sum > MAX_FILESET_SIZE:
-                                   partial_table_sum = MAX_FILESET_SIZE
+                                    partial_table_sum += v.values()[0] * cts.VERSION_SCALE_FACTOR
+                                if partial_table_sum > cts.MAX_FILESET_SIZE:
+                                   partial_table_sum = cts.MAX_FILESET_SIZE
                                 fileset_depth_string = "{}/{}/*/{}/{}/*/{}/".format('CMIP6', cmip6_mip,
                                                                                     cmip6_model, experiment,
                                                                                     table)
@@ -375,21 +313,23 @@ def run_main(cmip6_model=None, cmip6_mip=None):
     experiments_info = get_list_of_experiments()
 
     # Get the estimated volume for a given model
-    volsdir = os.path.join(basedir, "vols", "simulation_level_fileset_vols")
-    if not os.path.isdir(volsdir): os.makedirs(volsdir)
+    volsdir = os.path.join(cts.BASEDIR, "vols", "simulation_level_fileset_vols")
+    if not os.path.isdir(volsdir):
+        os.makedirs(volsdir)
+
     output_file = os.path.join(volsdir, "cmip6_fileset_volumes_{}_{}.txt".format(cmip6_model, cmip6_mip))
-    print(output_file)
-    if not os.path.exists(output_file):
-        subprocess.call(["touch", output_file])
     get_volumes(models_and_mips, experiments_info, output_file, cmip6_model=cmip6_model, cmip6_mip=cmip6_mip)
 
 
-if __name__ == "__main__":
+def parse_args():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, help='A valid CMIP6 model')
     parser.add_argument('--mip', type=str, help='A valid CMIP6 mip')
-    args = parser.parse_args()
 
+    return parser.parse_args()
+
+if __name__ == "__main__":
+    args = parse_args()
     run_main(cmip6_model=args.model, cmip6_mip=args.mip)
 

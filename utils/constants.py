@@ -18,5 +18,11 @@ model_lats_expceptions['AWI-ESM-1-1-MR'] = "800"
 
 #
 #BASEDIR = os.getcwd()
-BASEDIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-print(BASEDIR)
+# BASEDIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+p=os.path.abspath(__file__).split('/')
+idx = p.index('cmip6-fileset-estimator')
+BASEDIR = '/'.join(p[:idx+1])
+# print(BASEDIR)
+MAX_FILESET_SIZE = 50.
+ENSEMBLE_SCALE_FACTOR = 1.
+VERSION_SCALE_FACTOR = 1.

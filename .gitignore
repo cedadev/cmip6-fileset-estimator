@@ -1,7 +1,7 @@
 # user compiled
 cmip6-drq-venv-py3/
 setup.sh
-setup-env.sh
+setup_env.sh
 cronlogs/
 
 # Byte-compiled / optimized / DLL files
