@@ -4,6 +4,7 @@ import os
 
 #
 cmip6_source_id_CV = 'https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_source_id.json'
+cmip6_exp_id_CV = "https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_experiment_id.json"
 
 #
 model_lats_expceptions= {}
