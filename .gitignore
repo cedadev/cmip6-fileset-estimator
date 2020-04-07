@@ -3,6 +3,7 @@ cmip6-drq-venv-py3/
 setup.sh
 setup_env.sh
 cronlogs/
+ancils/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
