@@ -1,0 +1,8 @@
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp434/ 1.6100000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp126/ 1.6100000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp585/ 1.6100000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp245/ 1.6100000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp460/ 1.6100000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp370/ 3.6400000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp119/ 1.6100000000
+CMIP6/ScenarioMIP/*/EC-Earth3-AerChem/ssp534-over/ 1.1400000000

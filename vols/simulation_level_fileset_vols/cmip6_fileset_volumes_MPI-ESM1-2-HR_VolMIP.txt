@@ -1,0 +1,12 @@
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-long-hlN/ 1.2500000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-cluster-21C/ 0.5200000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/control-slab/ 0.4600000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-long-eq/ 1.2500000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-pinatubo-slab/ 1.1400000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-cluster-mill/ 1.2500000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-long-hlS/ 1.2500000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/dcppC-forecast-addPinatubo/ 2.7000000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-cluster-ctrl/ 0.9300000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-pinatubo-strat/ 1.1400000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-pinatubo-surf/ 1.1400000000
+CMIP6/VolMIP/*/MPI-ESM1-2-HR/volc-pinatubo-full/ 1.1400000000

@@ -1,0 +1,8 @@
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp434/ 0.9700000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp126/ 1.1600000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp585/ 1.1600000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp245/ 0.9700000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp460/ 0.9700000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp370/ 0.9700000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp119/ 0.9700000000
+CMIP6/ScenarioMIP/*/EC-Earth3-Veg-LR/ssp534-over/ 0.6900000000

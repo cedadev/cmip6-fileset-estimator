@@ -1,0 +1,10 @@
+CMIP6/HighResMIP/*/EC-Earth3P/hist-1950/ 26.0100000000
+CMIP6/HighResMIP/*/EC-Earth3P/control-1950/ 40.0100000000
+CMIP6/HighResMIP/*/EC-Earth3P/highresSST-future/ 7.1300000000
+CMIP6/HighResMIP/*/EC-Earth3P/spinup-1950/ 12.0000000000
+CMIP6/HighResMIP/*/EC-Earth3P/highresSST-LAI/ 7.1300000000
+CMIP6/HighResMIP/*/EC-Earth3P/highresSST-smoothed/ 7.1300000000
+CMIP6/HighResMIP/*/EC-Earth3P/highres-future/ 14.4000000000
+CMIP6/HighResMIP/*/EC-Earth3P/highresSST-p4K/ 7.1300000000
+CMIP6/HighResMIP/*/EC-Earth3P/highresSST-present/ 12.6800000000
+CMIP6/HighResMIP/*/EC-Earth3P/highresSST-4xCO2/ 7.1300000000

@@ -1,0 +1,12 @@
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-long-hlN/ 0.1400000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-cluster-21C/ 0.0700000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/control-slab/ 0.0400000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-long-eq/ 0.1400000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-pinatubo-slab/ 0.0700000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-cluster-mill/ 0.1800000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-long-hlS/ 0.1400000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/dcppC-forecast-addPinatubo/ 0.0200000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-cluster-ctrl/ 0.1300000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-pinatubo-strat/ 0.0700000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-pinatubo-surf/ 0.0700000000
+CMIP6/VolMIP/*/EMAC-2-53-Vol/volc-pinatubo-full/ 0.0700000000

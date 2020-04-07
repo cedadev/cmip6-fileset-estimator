@@ -1,0 +1,12 @@
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-long-hlN/ 1.1600000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-cluster-21C/ 0.5800000000
+CMIP6/VolMIP/*/UKESM1-0-LL/control-slab/ 0.4000000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-long-eq/ 1.1600000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-pinatubo-slab/ 0.6200000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-cluster-mill/ 1.4000000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-long-hlS/ 1.1600000000
+CMIP6/VolMIP/*/UKESM1-0-LL/dcppC-forecast-addPinatubo/ 0.1800000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-cluster-ctrl/ 1.0200000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-pinatubo-strat/ 0.6200000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-pinatubo-surf/ 0.6200000000
+CMIP6/VolMIP/*/UKESM1-0-LL/volc-pinatubo-full/ 0.6200000000

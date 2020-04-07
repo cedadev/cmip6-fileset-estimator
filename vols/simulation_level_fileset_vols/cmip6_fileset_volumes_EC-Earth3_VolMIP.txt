@@ -1,0 +1,12 @@
+CMIP6/VolMIP/*/EC-Earth3/volc-long-hlN/ 1.5300000000
+CMIP6/VolMIP/*/EC-Earth3/volc-cluster-21C/ 0.5100000000
+CMIP6/VolMIP/*/EC-Earth3/control-slab/ 0.6600000000
+CMIP6/VolMIP/*/EC-Earth3/volc-long-eq/ 1.5300000000
+CMIP6/VolMIP/*/EC-Earth3/volc-pinatubo-slab/ 1.7400000000
+CMIP6/VolMIP/*/EC-Earth3/volc-cluster-mill/ 1.2400000000
+CMIP6/VolMIP/*/EC-Earth3/volc-long-hlS/ 1.5300000000
+CMIP6/VolMIP/*/EC-Earth3/dcppC-forecast-addPinatubo/ 4.4800000000
+CMIP6/VolMIP/*/EC-Earth3/volc-cluster-ctrl/ 0.9300000000
+CMIP6/VolMIP/*/EC-Earth3/volc-pinatubo-strat/ 1.7400000000
+CMIP6/VolMIP/*/EC-Earth3/volc-pinatubo-surf/ 1.7400000000
+CMIP6/VolMIP/*/EC-Earth3/volc-pinatubo-full/ 1.7400000000

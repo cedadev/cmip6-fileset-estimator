@@ -1,0 +1,11 @@
+CMIP6/CMIP/*/EC-Earth3-Veg/esm-hist-ext/ 0.0300000000
+CMIP6/CMIP/*/EC-Earth3-Veg/1pctCO2/ 1.9600000000
+CMIP6/CMIP/*/EC-Earth3-Veg/piControl/ 10.1700000000
+CMIP6/CMIP/*/EC-Earth3-Veg/abrupt-4xCO2/ 9.3700000000
+CMIP6/CMIP/*/EC-Earth3-Veg/historical/ 14.3000000000
+CMIP6/CMIP/*/EC-Earth3-Veg/esm-piControl/ 5.4400000000
+CMIP6/CMIP/*/EC-Earth3-Veg/piControl-spinup/ 0.7100000000
+CMIP6/CMIP/*/EC-Earth3-Veg/esm-hist/ 3.1300000000
+CMIP6/CMIP/*/EC-Earth3-Veg/historical-ext/ 0.1800000000
+CMIP6/CMIP/*/EC-Earth3-Veg/esm-piControl-spinup/ 0.7100000000
+CMIP6/CMIP/*/EC-Earth3-Veg/amip/ 6.2600000000
