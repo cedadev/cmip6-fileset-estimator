@@ -30,7 +30,7 @@ def get_list_of_experiments():
 def get_list_of_models_and_mips():
     """
     Get a list of all models from the CMIP6 CV (Calls to the the
-    https://github.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_source_id.json and
+    https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_source_id.json and
     collects the most recent version of the list of verified CMIP6 models.)
 
     :return: [dict] of model information
@@ -215,7 +215,7 @@ def exception_checker(cmip6_model, experiment):
         return False
     elif experiment == "histSST-noLu":
         return False
-    elif experiment == "historical-cmip5" or experiment == "piControl-cmip5" or experiment == "piControl-spinup-cmip5":
+    elif experiment in ["historical-cmip5", "piControl-cmip5", "piControl-spinup-cmip5", "faf-heat-NA0pct", "faf-antwater-stress", "faf-heat-NA50pct"]:
         return True
     elif cmip6_model == "EC-Earth3" and experiment == "historical":
         return True

@@ -1,0 +1,44 @@
+Sender: LSF System <lsfadmin@host318.jc.rl.ac.uk>
+Subject: Job 7103092: <./fileset_table_creator_wrapper.sh> in cluster <lotus> Done
+
+Job <./fileset_table_creator_wrapper.sh> was submitted from host <jasmin-sci5-panfs.ceda.ac.uk> by user <rpetrie> in cluster <lotus>.
+Job was executed on host(s) <host318.jc.rl.ac.uk>, in queue <short-serial>, as user <rpetrie> in cluster <lotus>.
+</home/users/rpetrie> was used as the home directory.
+</home/users/rpetrie/cmip6/cmip6-fileset-estimator/scripts> was used as the working directory.
+Started at Results reported on 
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./fileset_table_creator_wrapper.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   62.21 sec.
+    Max Memory :                                 105 MB
+    Average Memory :                             105.00 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   874 MB
+    Max Processes :                              6
+    Max Threads :                                7
+    Run time :                                   70 sec.
+    Turnaround time :                            64 sec.
+
+The output (if any) follows:
+
+RRTMG-LW-4-91
+RRTMG-SW-4-02
+RTE-RRTMGP-181204
+SAM0-UNICON
+TaiESM1
+UKESM1-0-LL
+UKESM1-0-MMh
+UKESM1-ice-LL
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_UKESM1-ice-LL_ISMIP6.txt
+UofT-CCSM4
+VRESM-1-0
+updated table

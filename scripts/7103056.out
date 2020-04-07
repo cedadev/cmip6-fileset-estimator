@@ -1,0 +1,107 @@
+Sender: LSF System <lsfadmin@host318.jc.rl.ac.uk>
+Subject: Job 7103056: <./fileset_table_creator_wrapper.sh> in cluster <lotus> Done
+
+Job <./fileset_table_creator_wrapper.sh> was submitted from host <jasmin-sci5-panfs.ceda.ac.uk> by user <rpetrie> in cluster <lotus>.
+Job was executed on host(s) <host318.jc.rl.ac.uk>, in queue <short-serial>, as user <rpetrie> in cluster <lotus>.
+</home/users/rpetrie> was used as the home directory.
+</home/users/rpetrie/cmip6/cmip6-fileset-estimator/scripts> was used as the working directory.
+Started at Results reported on 
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./fileset_table_creator_wrapper.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   674.56 sec.
+    Max Memory :                                 113 MB
+    Average Memory :                             93.77 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   878 MB
+    Max Processes :                              6
+    Max Threads :                                7
+    Run time :                                   699 sec.
+    Turnaround time :                            697 sec.
+
+The output (if any) follows:
+
+Traceback (most recent call last):
+  File "create_filesets_table.py", line 356, in <module>
+    run_main(cmip6_model=args.model, cmip6_mip=args.mip)
+  File "create_filesets_table.py", line 343, in run_main
+    get_volumes(models_and_mips, experiments_info, output_file, cmip6_model=cmip6_model, cmip6_mip=cmip6_mip)
+  File "create_filesets_table.py", line 272, in get_volumes
+    table_var_vols, simVol = call_data_request(cmip6_model, model_cfgs, cmip6_mip, experiment, mips, tier=int(tier))
+  File "create_filesets_table.py", line 113, in call_data_request
+    table_vols, mipVol = parse_dreq_out(lines, mip, nmips)
+  File "create_filesets_table.py", line 154, in parse_dreq_out
+    table_vols = calc_table_variable_volumes(line, table_vols)
+  File "create_filesets_table.py", line 170, in calc_table_variable_volumes
+    table, var, vol = table_var[0], table_var[1], float(l[-1].strip().strip('Tb'))
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "create_filesets_table.py", line 356, in <module>
+    run_main(cmip6_model=args.model, cmip6_mip=args.mip)
+  File "create_filesets_table.py", line 343, in run_main
+    get_volumes(models_and_mips, experiments_info, output_file, cmip6_model=cmip6_model, cmip6_mip=cmip6_mip)
+  File "create_filesets_table.py", line 272, in get_volumes
+    table_var_vols, simVol = call_data_request(cmip6_model, model_cfgs, cmip6_mip, experiment, mips, tier=int(tier))
+  File "create_filesets_table.py", line 113, in call_data_request
+    table_vols, mipVol = parse_dreq_out(lines, mip, nmips)
+  File "create_filesets_table.py", line 154, in parse_dreq_out
+    table_vols = calc_table_variable_volumes(line, table_vols)
+  File "create_filesets_table.py", line 170, in calc_table_variable_volumes
+    table, var, vol = table_var[0], table_var[1], float(l[-1].strip().strip('Tb'))
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "create_filesets_table.py", line 356, in <module>
+    run_main(cmip6_model=args.model, cmip6_mip=args.mip)
+  File "create_filesets_table.py", line 343, in run_main
+    get_volumes(models_and_mips, experiments_info, output_file, cmip6_model=cmip6_model, cmip6_mip=cmip6_mip)
+  File "create_filesets_table.py", line 272, in get_volumes
+    table_var_vols, simVol = call_data_request(cmip6_model, model_cfgs, cmip6_mip, experiment, mips, tier=int(tier))
+  File "create_filesets_table.py", line 113, in call_data_request
+    table_vols, mipVol = parse_dreq_out(lines, mip, nmips)
+  File "create_filesets_table.py", line 154, in parse_dreq_out
+    table_vols = calc_table_variable_volumes(line, table_vols)
+  File "create_filesets_table.py", line 170, in calc_table_variable_volumes
+    table, var, vol = table_var[0], table_var[1], float(l[-1].strip().strip('Tb'))
+IndexError: list index out of range
+BCC-CSM2-MR
+BCC-ESM1
+BESM-2-9
+BNU-ESM-1-1
+CAMS-CSM1-0
+CAS-ESM2-0
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_AerChemMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_C4MIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_CFMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_CMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_CORDEX.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_DAMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_DynVarMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_FAFMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_GMMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_GeoMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_HighResMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_LS3MIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_LUMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_OMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_PMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_SIMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_ScenarioMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_VIACSAB.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CAS-ESM2-0_VolMIP.txt
+CESM1-1-CAM5-CMIP5
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CESM1-1-CAM5-CMIP5_CMIP.txt
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CESM1-1-CAM5-CMIP5_DCPP.txt
+CESM1-WACCM-SC
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_CESM1-WACCM-SC_PAMIP.txt
+CESM2
+CESM2-FV2
+updated table

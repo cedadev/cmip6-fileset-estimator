@@ -1,0 +1,43 @@
+Sender: LSF System <lsfadmin@host318.jc.rl.ac.uk>
+Subject: Job 7103090: <./fileset_table_creator_wrapper.sh> in cluster <lotus> Done
+
+Job <./fileset_table_creator_wrapper.sh> was submitted from host <jasmin-sci5-panfs.ceda.ac.uk> by user <rpetrie> in cluster <lotus>.
+Job was executed on host(s) <host318.jc.rl.ac.uk>, in queue <short-serial>, as user <rpetrie> in cluster <lotus>.
+</home/users/rpetrie> was used as the home directory.
+</home/users/rpetrie/cmip6/cmip6-fileset-estimator/scripts> was used as the working directory.
+Started at Results reported on 
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./fileset_table_creator_wrapper.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   0.68 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   7 sec.
+    Turnaround time :                            3 sec.
+
+The output (if any) follows:
+
+MPI-ESM1-2-HR
+MPI-ESM1-2-LR
+MPI-ESM1-2-XR
+MRI-AGCM3-2-H
+MRI-AGCM3-2-S
+MRI-ESM2-0
+NESM3
+NICAM16-7S
+NICAM16-8S
+NICAM16-9D-L78
+updated table

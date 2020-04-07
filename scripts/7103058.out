@@ -1,0 +1,45 @@
+Sender: LSF System <lsfadmin@host315.jc.rl.ac.uk>
+Subject: Job 7103058: <./fileset_table_creator_wrapper.sh> in cluster <lotus> Done
+
+Job <./fileset_table_creator_wrapper.sh> was submitted from host <jasmin-sci5-panfs.ceda.ac.uk> by user <rpetrie> in cluster <lotus>.
+Job was executed on host(s) <host315.jc.rl.ac.uk>, in queue <short-serial>, as user <rpetrie> in cluster <lotus>.
+</home/users/rpetrie> was used as the home directory.
+</home/users/rpetrie/cmip6/cmip6-fileset-estimator/scripts> was used as the working directory.
+Started at Results reported on 
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./fileset_table_creator_wrapper.sh
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   80.82 sec.
+    Max Memory :                                 68 MB
+    Average Memory :                             58.50 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   835 MB
+    Max Processes :                              6
+    Max Threads :                                7
+    Run time :                                   91 sec.
+    Turnaround time :                            84 sec.
+
+The output (if any) follows:
+
+CNRM-ESM2-1
+CNRM-ESM2-1-HR
+CSIRO-Mk3L-1-3
+CanESM5
+CanESM5-CanOE
+E3SM-1-0
+E3SM-1-1
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_E3SM-1-1_LS3MIP.txt
+E3SM-1-1-ECA
+EC-Earth3
+MISSING /home/users/rpetrie/cmip6/cmip6-fileset-estimator/vols/simulation_level_fileset_vols/cmip6_fileset_volumes_EC-Earth3_PMIP.txt
+EC-Earth3-AerChem
+updated table
