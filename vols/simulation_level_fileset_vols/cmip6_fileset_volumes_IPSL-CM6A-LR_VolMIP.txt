@@ -1,0 +1,12 @@
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-long-hlN/ 0.5300000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-cluster-21C/ 0.2800000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/control-slab/ 0.1700000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-long-eq/ 0.5300000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-pinatubo-slab/ 0.2700000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-cluster-mill/ 0.6700000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-long-hlS/ 0.5300000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/dcppC-forecast-addPinatubo/ 0.3000000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-cluster-ctrl/ 0.4900000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-pinatubo-strat/ 0.2700000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-pinatubo-surf/ 0.2700000000
+CMIP6/VolMIP/*/IPSL-CM6A-LR/volc-pinatubo-full/ 0.2700000000

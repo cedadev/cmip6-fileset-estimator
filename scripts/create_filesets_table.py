@@ -73,7 +73,7 @@ def get_model_configs(cmip6_model):
     return model_cfgs
 
 
-def call_data_request(model, model_configs, mip, experiment, mips, tier=1, priority=1):
+def call_data_request(model, model_configs, mip, experiment, mips, tier=1, priority=1, verbose=False):
     """
     "get_model_mip_exp_vol" routine links together the data volume calulation from the
     CMIP6 data request and the CMIP6 CVs, to produce an estimated data volume.
@@ -103,6 +103,8 @@ def call_data_request(model, model_configs, mip, experiment, mips, tier=1, prior
 
     dreq_query = ['drq', '-e', experiment, '-m', mips, '-t', str(tier), '-p', str(priority), '--esm',
                   '--mcfg', model_config, '--printVars', '--printLinesMax', '10000', '--grdforce', 'native' ]
+    if verbose:
+        print(dreq_query)
     p = subprocess.Popen(dreq_query, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.decode('utf-8') # new line added for python3 due to changes in bytes
