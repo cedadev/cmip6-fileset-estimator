@@ -1,0 +1,12 @@
+CMIP6/VolMIP/*/GISS-E2-2-G/control-slab/ 0.0900000000
+CMIP6/VolMIP/*/GISS-E2-2-G/dcppC-forecast-addPinatubo/ 0.4000000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-cluster-21C/ 0.1000000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-cluster-ctrl/ 0.1800000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-cluster-mill/ 0.2400000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-long-eq/ 0.2400000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-long-hlN/ 0.2400000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-long-hlS/ 0.2400000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-pinatubo-full/ 0.2100000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-pinatubo-slab/ 0.2100000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-pinatubo-strat/ 0.2100000000
+CMIP6/VolMIP/*/GISS-E2-2-G/volc-pinatubo-surf/ 0.2100000000

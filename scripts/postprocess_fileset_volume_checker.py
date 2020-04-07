@@ -80,7 +80,7 @@ def main():
 
     # move checked list into new location
     os.unlink(FILESETS_FILE_LATEST)
-    os.link(FILESETS_FILE, FILESETS_FILE_LATEST)
+    os.symlink(FILESETS_FILE, FILESETS_FILE_LATEST)
     copyfile(FILESETS_FILE, CREPP_FILE)
 
 if __name__ == "__main__":
