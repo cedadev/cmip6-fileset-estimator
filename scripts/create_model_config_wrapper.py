@@ -9,7 +9,10 @@ ANCILS_DIR = os.path.join(create_model_configs.cts.BASEDIR, "ancils")
 
 def remove_old_logs():
     """
+    This function removes old logs from the ancils dir. This is any text file older than 3 days. It keeps any file created
+    on the first day of the month.
 
+    :return: no return
     """
     three_days_old = dt.date.today() - dt.timedelta(days=3)
     three_days_ago = three_days_old.strftime('%Y%m%d')
@@ -20,10 +23,17 @@ def remove_old_logs():
 
             if not file_date.endswith('01'):
                 if int(file_date) < int(three_days_ago):
-                    #print("I will delete {}".format(os.path.join(ANCILS_DIR, f)))
                     os.remove(os.path.join(ANCILS_DIR, f))
 
 def check_file_creation(today_filename):
+    """
+    This function checks the file output from create_model_config script exists. This will only run if the '--v'
+    argument is given on the command line. This is just a test.
+
+    :param today_filename: str [filename]
+    :return: print statement at terminal
+    """
+
     if os.path.exists(today_filename):
         print("Today's file {} has been created".format(today_filename))
     else:

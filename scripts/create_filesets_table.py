@@ -9,7 +9,10 @@ from fileset_appender import FilesetAppender
 
 def get_list_of_experiments():
     """
-    
+    Get a list of all experiments from the CMIP6 CV (calls to the
+    https://raw.githubusercontent.com/WCRP-CMIP/CMIP6_CVs/master/CMIP6_experiment_id.json) and collects the most recent
+    version of the list of verified CMIP6 experiments.
+
     :return: [DICT] form 'experiment_mips': {'tier': u'2', 'mips': [u'AerChemMIP']}
     """
 
@@ -117,7 +120,7 @@ def call_data_request(model, model_configs, mip, experiment, mips, tier=1, prior
 
 def parse_dreq_out(lines, mip, nmips):
     """
-
+    Takes information from the dreq call and returns the table volume and mip volumes.
 
     :param lines:
     :param mip: A valid CMIP6 MIP name
@@ -158,6 +161,7 @@ def parse_dreq_out(lines, mip, nmips):
 
 def calc_table_variable_volumes(line, table_vols):
     """
+    Calculates the table volumes.
 
     :param line:
     :param table_vols:
@@ -180,6 +184,7 @@ def calc_table_variable_volumes(line, table_vols):
 
 def calc_table_vol(table_var_vol_dict):
     """
+    Calculates the total table volumes.
 
     :param table_var_vol_dict:
     :return: total_vols_by_table
@@ -198,6 +203,12 @@ def calc_table_vol(table_var_vol_dict):
 
 
 def get_mips_per_model(models_and_mips, cmip6_model):
+    """
+    Identifies the mips for that specific model input.
+    :param models_and_mips:
+    :param cmip6_model:
+    :return: mips
+    """
 
     for model, mips in models_and_mips.items():
 
@@ -208,8 +219,11 @@ def get_mips_per_model(models_and_mips, cmip6_model):
 
 def exception_checker(cmip6_model, experiment):
     """
+    This function checks a hard code list of exceptions of which can and cannot continue.
 
-
+    :param cmip6_model:
+    :param experiment:
+    :return: Boolean True/False
     """
     if cmip6_model == "AWI-CM-1-1-MR" and experiment == "piControl":
         return False
@@ -222,7 +236,11 @@ def exception_checker(cmip6_model, experiment):
 
 def get_scale_factor(cmip6_model):
     """
+    Gives the scale factor for creating filesets for the specified model.
+    Some model inputs will give a default value specified below.
 
+    :param cmip6_model:
+    :return: scale factor
     """
     if "UKESM" in cmip6_model or "HadGEM3" in cmip6_model:
         SCALE_FACTOR = 2.0
@@ -233,7 +251,16 @@ def get_scale_factor(cmip6_model):
 
 def log_granularity(ofile, appender, volume_type, format, threshold, fileset_depth_string):
     """
+    Depending on the volume type entered into this function, if the threshold is not met an exception will be thrown.
+    If all is correct, the path and volume will be added to the corresponding model and exp text file in vols.
 
+    :param ofile:
+    :param appender:
+    :param volume_type:
+    :param format:
+    :param threshold:
+    :param fileset_depth_string:
+    :return:
     """
 
     granularity = appender.get_granularity(ofile, format)
@@ -248,6 +275,17 @@ def log_granularity(ofile, appender, volume_type, format, threshold, fileset_dep
 
 
 def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6_mip=None):
+    """
+    This function uses the ones above to calculate the exact volumes for each element for fileset creation. It
+    requires different elements which can be obtained as output from the other functions.
+
+    :param models_and_mips:
+    :param experiment_info:
+    :param ofile:
+    :param cmip6_model:
+    :param cmip6_mip:
+    :return:
+    """
 
      # read in model congigurations (grid size) so that volume estimates are reflective of the model resolution
     model_cfgs = get_model_configs(cmip6_model)
@@ -315,9 +353,7 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
                             if partial_table_sum > cts.MAX_FILESET_SIZE:
                                 partial_table_sum = cts.MAX_FILESET_SIZE
 
-                            appender.write_fileset(fileset_depth_string, partial_table_sum) #this ones is different to the others so cant go in function
-
-                            #so I have managed to take out many lines and translate to python 3 but not reduce the indent
+                            appender.write_fileset(fileset_depth_string, partial_table_sum) 
 
 def run_main(cmip6_model=None, cmip6_mip=None):
 

@@ -4,6 +4,9 @@ import subprocess
 from utils import constants as cts
 from create_filesets_table import get_list_of_models_and_mips
 
+# Updating the filesets table by going through all the CMIP6 model and mip combinations and identifying any missing
+# If there are any missing, create_filesets_table.py is run to add them in
+
 LATEST_MODEL_CFS = os.path.join(cts.BASEDIR, "ancils/model_configs_latest.txt")
 SIMULATION_VOLS_DIR = os.path.join(cts.BASEDIR, "vols/simulation_level_fileset_vols")
 
@@ -18,7 +21,6 @@ def main():
 
     for model in models:
         model_name = model.split(':')[0].strip()
-        print(model_name)
         # Assert that every mip that this model is running has a corresponding simulation vol table
         mips_for_model = model_mips[model_name] # return a list of all the mips
         for mip in mips_for_model:

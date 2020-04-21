@@ -238,6 +238,12 @@ def get_nlats(model, n_ocean_lats, n_atmos_lats):
     return nlats
 
 def get_resolution_component(details):
+    """
+    Obtain the resolution or set a default of zero if cannot obtain
+
+    :param details: [dict] of model information
+    :return: res
+    """
 
     try:
         res = details['model_component'][realm]['description'].split('; ')[part].split(' ')[res_loc]
@@ -260,9 +266,7 @@ def main():
 
     for model in models:
 
-        # if model == "IPSL-CM7A-ATM-HR":
-        #   print(model)
-        # for model in ["VRESM-1-0"]:
+    
         nho, n_ocean_lats = get_horizontal_ocean_resolution(model_details[model]["model_component"]["ocean"]["description"])
         nlo = get_number_of_ocean_levels(model_details[model]["model_component"]["ocean"]["description"])
         nha, n_atmos_lats = get_horizontal_atmos_resolution(model_details[model]["model_component"]["atmos"]["description"])
