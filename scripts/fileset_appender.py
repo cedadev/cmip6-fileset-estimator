@@ -1,3 +1,4 @@
+# Class required for create_filesets_table.py
 
 class FilesetAppender(object):
 

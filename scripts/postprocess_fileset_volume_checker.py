@@ -26,6 +26,12 @@ def shadows(a, b):
 
 
 def read_fileset_vols(file):
+    """
+    Read in the fileset volumes from the given file and returns the paths
+
+    :param file:
+    :return: [list] of paths
+    """
     with open(file) as r:
         filesets = r.readlines()
 
@@ -41,6 +47,13 @@ def read_fileset_vols(file):
 
 
 def find_all_simulations(flist, sim):
+    """
+    Finds all simulations in the list given.
+
+    :param flist:
+    :param sim:
+    :return: [list]
+    """
     if not flist:
         return None
     else:
@@ -52,6 +65,12 @@ def find_all_simulations(flist, sim):
         return matches
 
 def check_fileset_consistency(filesets):
+    """
+    Checking the fileset is consistent in a way that CREPP understands before creating them.
+
+    :param filesets:
+    :return:
+    """
     fileset_paths = read_fileset_vols(filesets)
     simulations = set()
     for path in fileset_paths:
