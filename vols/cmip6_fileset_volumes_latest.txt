@@ -1,1 +1,1 @@
-../vols/volume_tables/cmip6_fileset_volumes_2020-04-28.txt
+../vols/volume_tables/cmip6_fileset_volumes_2020-04-29.txt
