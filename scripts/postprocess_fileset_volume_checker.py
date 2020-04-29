@@ -85,6 +85,22 @@ def check_fileset_consistency(filesets):
             if shadows(all_matching_sims[i], all_matching_sims[i + 1]):
                 raise Exception('Shadows {}'.format(all_matching_sims[i], all_matching_sims[i + 1]))
 
+def remove_old_vol_logs():
+    """
+    This function removes old logs from the vols/volume_tables/ dir. This is any text file older than today's date.
+    It keeps any file created on the first day of the month.
+
+    :return:
+    """
+    today = datetime.date.today()
+    todays_date = today.strftime('%Y%m%d')
+
+    for f in os.listdir("../vols/volume_tables/"):
+        if not f.startswith(('cmip6_fileset_volumes_2019','cmip6_fileset_volumes_2020-01', 'cmip6_fileset_volumes_2020-02', 'cmip6_fileset_volumes_2020-03', 'cmip6_fileset_volumes_2020-04-07' )):
+            file_date = f.strip('.txt').split('_')[3].replace("-","")
+            if not file_date.endswith('01'):
+                if int(file_date) < int(todays_date):
+                    os.remove(os.path.join("../vols/volume_tables/",f))
 
 def main():
 
@@ -101,6 +117,8 @@ def main():
     os.unlink(FILESETS_FILE_LATEST)
     os.symlink(FILESETS_FILE, FILESETS_FILE_LATEST)
     copyfile(FILESETS_FILE, CREPP_FILE)
+
+    remove_old_vol_logs()
 
 if __name__ == "__main__":
     main()
