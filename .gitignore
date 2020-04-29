@@ -3,7 +3,6 @@ cmip6-drq-venv-py3/
 setup.sh
 setup_env.sh
 cronlogs/
-ancils/
 lotus_logs/
 cron-private/
 cron-update-git-repo.sh
