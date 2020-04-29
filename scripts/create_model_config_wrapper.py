@@ -14,7 +14,7 @@ def remove_old_logs():
 
     :return: no return
     """
-    three_days_old = dt.date.today() - dt.timedelta(days=3)
+    three_days_old = dt.date.today() - dt.timedelta(days=2)
     three_days_ago = three_days_old.strftime('%Y%m%d')
 
     for f in os.listdir(ANCILS_DIR):
