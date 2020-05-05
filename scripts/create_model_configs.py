@@ -190,6 +190,9 @@ def get_horizontal_atmos_resolution(description):
         lats = None
     elif re.search("cells", description):
         match = re.search(r";\s?(?P<nh>\d+,?\d{3}?,?(\d{3})?).*cells", description)
+        if not match:
+            match = re.search(r"with\s?(?P<nh>\d+,?\d{3}?,?(\d{3})?).*cells", description)
+
         nh = match.groupdict()["nh"]
         if "," in nh:
             nh = nh.replace(",", "")
