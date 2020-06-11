@@ -100,7 +100,10 @@ def remove_old_vol_logs():
             file_date = f.strip('.txt').split('_')[3].replace("-","")
             if not file_date.endswith('01'):
                 if int(file_date) < int(todays_date):
-                    os.remove(os.path.join("../vols/volume_tables/",f))
+                    cmd1 = "git add {}".format(os.path.join("../vols/volume_tables/",f))
+                    subprocess.run(cmd1, shell=True)
+                    cmd = "git rm -f {}".format(os.path.join("../vols/volume_tables/",f))
+                    subprocess.run(cmd, shell=True)
 
 def main():
 
