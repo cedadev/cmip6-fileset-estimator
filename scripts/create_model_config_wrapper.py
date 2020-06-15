@@ -48,7 +48,7 @@ def main():
     parser = argparse.ArgumentParser(description='For testing file has been created')
     parser.add_argument('--v', help='Test create_model_configs has worked and file exists', action="store_true")
     args = parser.parse_args()
-    #create_model_configs.main()
+    create_model_configs.main()
 
     if args.v:
         check_file_creation(os.path.join(ANCILS_DIR, "model_configs_{}.txt".format(dt.datetime.today().isoformat().split('T')[0])))
