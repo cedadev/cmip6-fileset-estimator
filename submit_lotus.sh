@@ -8,6 +8,6 @@ BASEDIR=/home/users/eggleton/CEDA/CMIP6/cmip6-fileset-estimator/
 cd ${BASEDIR}
 cd scripts/
 
-bsub -o ../lotus_logs/%J.out -W 6:00 ./fileset_table_creator_wrapper.sh
+sbatch -o ../lotus_logs/slurm-%j.out -t 6:00 ./fileset_table_creator_wrapper.sh
 
 
