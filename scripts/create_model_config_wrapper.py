@@ -4,6 +4,7 @@ import os
 import datetime as dt
 import create_model_configs
 import argparse
+import subprocess
 
 ANCILS_DIR = os.path.join(create_model_configs.cts.BASEDIR, "ancils")
 
@@ -23,7 +24,10 @@ def remove_old_logs():
 
             if not file_date.endswith('01'):
                 if int(file_date) < int(three_days_ago):
-                    os.remove(os.path.join(ANCILS_DIR, f))
+                    cmd1 = "git add {}".format(os.path.join(ANCILS_DIR, f))
+                    subprocess.run(cmd1, shell=True)
+                    cmd = "git rm -f {}".format(os.path.join(ANCILS_DIR, f))
+                    subprocess.run(cmd, shell=True)
 
 def check_file_creation(today_filename):
     """

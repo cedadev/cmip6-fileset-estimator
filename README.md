@@ -10,7 +10,7 @@ Then this code calls the CMIP6 Data Request Python Package, this is currently in
 As of 28-06-2019 the controlled vocabularies are not fully up to date the model IPSL-CM6A-LR is participating in mips not listed, HighResMIP and DAMIP. The fileset look up tables need to be generated for these manually.
 
 # Usage
-All of the code in this directory is Python 3 compliant. It is recommended that to run this code, a Python 3 virtual environment be set up which has the Data Request package version 1.0.31 and install XlsxWriter (as this is not currently included in this version of the dreq). This code will be tested with the latest version of the Data Request as soon as it is available.
+All of the code in this directory is Python 3 compliant. It is recommended that to run this code, a Python 3 virtual environment be set up which has the Data Request package version 1.0.32 and install XlsxWriter (as this is not currently included in this version of the dreq). This code will be tested with the latest version of the Data Request as soon as it is available.
 
 Use this code with the latest version of the data request that includes all models to avoid failures, currently excluded is experiment: histSST-noLu
 

@@ -353,7 +353,7 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
                             if partial_table_sum > cts.MAX_FILESET_SIZE:
                                 partial_table_sum = cts.MAX_FILESET_SIZE
 
-                            appender.write_fileset(fileset_depth_string, partial_table_sum) 
+                            appender.write_fileset(fileset_depth_string_partial, partial_table_sum)
 
 def run_main(cmip6_model=None, cmip6_mip=None):
 
