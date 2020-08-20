@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#for ingest_control
+#for ingest control
 
 cd /home/badc/software/datasets/cmip6/cmip6-fileset-estimator/
 source setup_env.sh
-python scripts/create_model_config_wrapper.py
+python scripts/fileset_table_creator_wrapper.sh
