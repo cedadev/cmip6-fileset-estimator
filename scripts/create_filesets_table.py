@@ -106,8 +106,8 @@ def call_data_request(model, model_configs, mip, experiment, mips, tier=1, prior
 
     dreq_query = ['drq', '-e', experiment, '-m', mips, '-t', str(tier), '-p', str(priority), '--esm',
                   '--mcfg', model_config, '--printVars', '--printLinesMax', '10000', '--grdforce', 'native' ]
-    if verbose:
-        print(dreq_query)
+    
+    print(dreq_query)
     p = subprocess.Popen(dreq_query, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     out = out.decode('utf-8') # new line added for python3 due to changes in bytes
