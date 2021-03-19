@@ -1,0 +1,16 @@
+CMIP6/RFMIP/*/EC-Earth3-AerChem/hist-spAer-aer/ 3.8700000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/hist-spAer-all/ 1.2000000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-4xCO2/ 0.2200000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-aer/ 0.9400000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-anthro/ 0.2200000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-control/ 0.9400000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-ghg/ 0.2200000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-histaer/ 4.5100000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-histall/ 4.5100000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-histghg/ 4.5100000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-histnat/ 4.5100000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-lu/ 0.2200000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-spAer-aer/ 0.2200000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-spAer-anthro/ 0.2200000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-spAer-histaer/ 1.2000000000
+CMIP6/RFMIP/*/EC-Earth3-AerChem/piClim-spAer-histall/ 1.2000000000

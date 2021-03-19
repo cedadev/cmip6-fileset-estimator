@@ -1,3 +1,4 @@
+CMIP6/HighResMIP/*/HiRSM-SIT-LR/highresSST-present/*/ 333.000000
 CMIP6/HighResMIP/*/HiRAM-SIT-LR/control-1950/*/CFday/ 22.6480619520
 CMIP6/HighResMIP/*/HiRAM-SIT-LR/control-1950/*/6hrPlevPt/ 9.8170306560
 CMIP6/HighResMIP/*/HiRAM-SIT-LR/control-1950/*/E1hr/ 2.0667432960
