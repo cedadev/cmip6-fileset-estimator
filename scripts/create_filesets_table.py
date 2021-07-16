@@ -314,7 +314,7 @@ def get_volumes(models_and_mips, experiment_info, ofile, cmip6_model=None, cmip6
 
                 if total_simulation_vol == 0.:
                     continue
-
+                partial_table_fileset = []
                 if total_simulation_vol < cts.MAX_FILESET_SIZE:
                     fileset_depth_string = "{}/{}/*/{}/{}/".format('CMIP6', cmip6_mip, cmip6_model, experiment)
                     log_granularity(ofile, appender, total_simulation_vol,experiment,5, fileset_depth_string)

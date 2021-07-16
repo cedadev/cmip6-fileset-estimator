@@ -2,8 +2,9 @@
 import os
 import json
 import sys
+import datetime
 
-date = sys.argv[1]
+date = datetime.datetime.now().strftime("%Y-%m-%d")
 
 VOLSFILE = f"../allocations-data/cmip6_vols_{date}.json"
 HIGHRESMIP_DATA_VOLS_FILE = f"../allocations-data/highresmip_fileset_allocations_{date}.csv"
@@ -81,6 +82,7 @@ def main():
     fileset_list = data["fileset_list"]
 
     replica_accumulated_saving = 0.0
+    replica_table = [] 
 
     with open(HIGHRESMIP_DATA_VOLS_FILE, "w") as highres, open(MOHC_DATA_VOLS_FILE, "w") as mohc, open(REPLICA_DATA_VOLS_FILE, "w") as replica_fh:
 
@@ -149,8 +151,17 @@ def main():
 
                 replica_fh.writelines(f"{path}, {allocation_tb}, {current_tb}, {percent_used}, "
                                       f"{new_allocation}, {saving}, {replica_accumulated_saving}\n")
+                replica_table.append({"path": path, "saving": saving, "new_allocation": new_allocation})
+
 
     highres.close(), mohc.close(), replica_fh.close()
+    newlist = sorted(replica_table, key=lambda k: k['saving'])
+    newlist.reverse()
+    saving = 0
+    for x in newlist[:50]:
+        print(x["path"], x["new_allocation"])
+        saving += x["saving"]
+    print(saving)
 
 
 if __name__ == "__main__":
