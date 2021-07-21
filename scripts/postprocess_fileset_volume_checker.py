@@ -38,6 +38,7 @@ def read_fileset_vols(file):
     paths = []
     for fs in filesets:
         fs_parts = fs.strip().split(' ')
+        print(fs_parts)
         path, vol = fs_parts[0], float(fs_parts[1].strip())
         paths.append(path)
         if vol > MAX_FILESET_SIZE:
