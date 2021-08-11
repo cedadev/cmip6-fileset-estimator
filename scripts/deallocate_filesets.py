@@ -1,4 +1,3 @@
-
 import os
 import json
 import sys
@@ -109,25 +108,25 @@ def main():
 
                 if allocation_tb >= 5.0:
                     if percent_used >= 90.:
-                        scale = 1.0
+                        scale = 0.95
                     elif percent_used >= 60.:
-                        scale = 0.8
-                    elif percent_used >= 40.:
                         scale = 0.7
-                    elif percent_used >= 30.:
+                    elif percent_used >= 40.:
                         scale = 0.5
-                    else:
+                    elif percent_used >= 30.:
                         scale = 0.4
+                    else:
+                        scale = 0.2
 
                 elif allocation_tb >= 1.0:
                     if percent_used >= 90.:
-                        scale = 1.0
+                        scale = 0.95
                     elif percent_used >= 50.:
-                        scale = 0.8
-                    elif percent_used >= 30.:
-                        scale = 0.6
-                    else:
                         scale = 0.5
+                    elif percent_used >= 30.:
+                        scale = 0.3
+                    else:
+                        scale = 0.2
                 else:
                     if percent_used >= 90.:
                         scale = 1.0
@@ -158,7 +157,7 @@ def main():
     newlist = sorted(replica_table, key=lambda k: k['saving'])
     newlist.reverse()
     saving = 0
-    for x in newlist[:50]:
+    for x in newlist[:100]:
         print(x["path"], x["new_allocation"])
         saving += x["saving"]
     print(saving)
