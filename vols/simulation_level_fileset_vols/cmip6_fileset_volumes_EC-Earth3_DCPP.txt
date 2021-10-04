@@ -4,7 +4,7 @@ CMIP6/DCPP/*/EC-Earth3/dcppC-ipv-NexTrop-pos/ 0.2600000000
 CMIP6/DCPP/*/EC-Earth3/dcppC-pac-control/ 0.1800000000
 CMIP6/DCPP/*/EC-Earth3/dcppC-amv-pos/ 0.4100000000
 CMIP6/DCPP/*/EC-Earth3/dcppC-atl-spg/ 0.2400000000
-CMIP6/DCPP/*/EC-Earth3/dcppA-hindcast/ 12.9100000000
+CMIP6/DCPP/*/EC-Earth3/dcppA-hindcast/ 6.9100000000
 CMIP6/DCPP/*/EC-Earth3/dcppC-hindcast-noElChichon/ 0.1300000000
 CMIP6/DCPP/*/EC-Earth3/dcppC-amv-ExTrop-neg/ 0.6300000000
 CMIP6/DCPP/*/EC-Earth3/dcppC-amv-Trop-neg/ 0.6300000000
