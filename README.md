@@ -45,15 +45,8 @@ This also creates a copy of the lookup table at ../vols/cmip6_fileset_volumes_la
 
 # Wrapper Script
 
-In order to run the whole process described above, run ./fileset_table_creator_wrapper.sh. This does not include the running of create_model_config_wrapper.py (the first step in the workflow) - see details below about it running on the CRON machine. 
+In order to run the whole process described above, run ./fileset_table_creator_wrapper.sh. This does not include the running of create_model_config_wrapper.py (the first step in the workflow) - see details below about it running on ingest_control.
 
-This bash script is written relative to Francesca Eggleton's environment as it is run from her home directory and setup on her CRON machine account (see below). This wrapper will run ./update_fileset_table_wrapper.py and if successful, will run ./postprocess_fileset_volume_checker.py.
+This bash script is available to run on ingest_control [create-fileset-table]. It runs daily at 6am. This wrapper will run ./update_fileset_table_wrapper.py and if successful, will run ./postprocess_fileset_volume_checker.py.
 
-This workflow will create any missing or new files in subdir ./vols/simulation_level_fileset_vols/cmip6_fileset_volumes_<model>_<mip>.txt, it will create a concatenated single file table under subdir ./vols/volume_tables/cmip6_fileset_volumes_YYY-MM-DD.txt, create a symlink between ./vols/volume_tables/cmip6_fileset_volumes_latest.txt and ./vols/volume_tables/cmip6_fileset_volumes_YYY-MM-DD.txt (created daily via CRON run below) and copy this latest file to gws described above (post-processing).
-
-# Running on the CRON machine
-The ./create_model_config_wrapper.py script is run daily on Francesca's CRON machine using a basic bash wrapper script called cron_wrapper_cmip6.sh.
-This bash script has been written for use on Francesca's machine and will not run within this repo, it is for reference only to show how this is run in crontab. This produces a daily file in subdir ./ancils/model_configs_YYYY-MM-DD.txt.
-
-The ./fileset_table_creator_wrapper.sh is run daily on Francesca's CRON machine through submission to LOTUS. A basic wrapper script called submit_lotus.sh has been created specific to Francesca's environment to submit this job to LOTUS.
-This bash script will not run within this repo on anyone else's machine, however, it can be used as reference for writing a similar script relative to the users environment. 
+This workflow will create any missing or new files in subdir ./vols/simulation_level_fileset_vols/cmip6_fileset_volumes_<model>_<mip>.txt, it will create a concatenated single file table under subdir ./vols/volume_tables/cmip6_fileset_volumes_YYY-MM-DD.txt, create a symlink between ./vols/volume_tables/cmip6_fileset_volumes_latest.txt and ./vols/volume_tables/cmip6_fileset_volumes_YYY-MM-DD.txt (created daily via CRON run below) and copy this latest file to gws described above (post-processing). 
