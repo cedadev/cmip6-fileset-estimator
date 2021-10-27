@@ -1,0 +1,2 @@
+PRIMAVERA/primWP5/*/EC-Earth3P-HR/primWP5-amv-neg/ 5.7000000000 
+PRIMAVERA/primWP5/*/EC-Earth3P-HR/primWP5-amv-pos/ 5.7000000000
